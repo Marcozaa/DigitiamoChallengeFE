@@ -1,0 +1,44 @@
+.responseContainer {
+    background-color: #f4f4f4; // Light background for the container
+    padding: 16px;
+    border-radius: 8px; // Rounded corners
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+    width: 50vw; // Fixed width
+    margin: 16px auto; // Center the box horizontally
+
+    .responseStatus,
+    .responseLocation,
+    .responseServer {
+        margin-bottom: 12px; // Space between sections
+        padding: 8px;
+        background-color: #fff; // White background for the section
+        border: 1px solid #e0e0e0; // Light border
+        border-radius: 4px; // Rounded corners
+    }
+
+    .title {
+        font-size: 12px; // Smaller font for the title
+        font-weight: bold;
+        color: #777; // Gray color
+        text-transform: uppercase;
+        margin-bottom: 4px;
+    }
+
+    .value {
+        font-size: 14px; // Slightly larger font for the value
+        color: #333; // Darker color for contrast
+    }
+}
+
+@media (min-width: 768px) {
+    .responseContainer {
+        width: 300px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .responseContainer {
+        width: 50vw;
+    }
+}

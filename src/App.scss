@@ -1,0 +1,65 @@
+
+.App{
+
+  .slideUpComponent{
+  
+  }
+}
+
+/* Default styles for larger screens */
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+  .App-header {
+    
+  }
+
+  .searchContainer {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    gap: 25px;
+  }
+
+  .slideUpComponent{
+    display: block;
+  }
+
+  .searchContainer .card {
+    width: 100%;
+  }
+}
+
+.urlInfo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ;
+  
+  
+}
+
+
+@media (min-width: 768px) {
+.slideUpComponent {
+    display: none;
+  }
+
+}

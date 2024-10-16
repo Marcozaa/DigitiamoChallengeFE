@@ -1,0 +1,17 @@
+.shareContainer{
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    flex-direction: column;
+    p{
+        font-weight: 300;
+    }
+    .top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+}
