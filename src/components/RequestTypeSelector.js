@@ -8,10 +8,6 @@ export default function RequestTypeSelector({
   const requests = [
     { name: "GET", code: "GET" },
     { name: "POST", code: "POST" },
-    { name: "DELETE", code: "DELETE" },
-    { name: "PUT", code: "PUT" },
-    { name: "INFO", code: "INFO" },
-    { name: "DUMB", code: "DUMB" },
   ];
 
   return (
