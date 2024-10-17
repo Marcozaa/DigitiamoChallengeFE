@@ -97,7 +97,7 @@ function App() {
   return (
     <div className="App">
       <DialogInsertRequest visible={visible} setVisible={setVisible} />
-      {result && <StatusCode code={result.statusCode} />}
+      {result && <StatusCode code={result.firstRequest.statusCode} />}
       <header className="App-header">
         <div className="searchContainer">
           <RequestTypeSelector
@@ -122,24 +122,37 @@ function App() {
       {result && (
         <>
           <div className="urlInfo">
-            <Carousel showStatus={false}>
+            <Carousel
+              showStatus={false}
+              style={{
+                width: "100%",
+              }}
+            >
               <UrlResponseInformations
-                fullUrl={result.fullUrl}
-                scheme={result.scheme}
-                host={result.host}
-                path={result.path}
+                fullUrl={result.firstRequest.fullUrl}
+                scheme={result.firstRequest.scheme}
+                host={result.firstRequest.host}
+                path={result.firstRequest.path}
               />
-              <ResponseInfo
-                server={result.serverInfo}
-                fullUrl={result.fullUrl}
-                scheme={result.scheme}
-                host={result.host}
-                path={result.path}
-                statusLine={result.statusLine}
-              />
+              {[result.firstRequest, result.secondRequest].map((res, index) => {
+                if (!res) return <></>; // Se res non esiste, non renderizzare nulla
+
+                return (
+                  <div key={index}>
+                    <ResponseInfo
+                      server={res.serverInfo}
+                      fullUrl={res.fullUrl}
+                      scheme={res.scheme}
+                      host={res.host}
+                      path={res.path}
+                      statusLine={res.statusLine}
+                    />
+                  </div>
+                );
+              })}
             </Carousel>
           </div>
-          <ShareLink link={result.requestId} />
+          <ShareLink link={result.firstRequest.requestId} />
           <div className="slideUpComponent">
             <SwipeableBottomSheet overflowHeight={64}>
               <div style={{ height: "50vh" }}>
@@ -164,7 +177,9 @@ function App() {
                     {" "}
                   </div>
                 </div>
-                <LoadTimeProgressBar loadTime={result.loadTime * 0.001} />
+                <LoadTimeProgressBar
+                  loadTime={result.firstRequest.loadTime * 0.001}
+                />
               </div>
             </SwipeableBottomSheet>
           </div>

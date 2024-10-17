@@ -6,6 +6,8 @@ export default function StatusCode({ code }) {
     { code: 201, description: "Resource created." },
     { code: 202, description: "Request accepted." },
     { code: 204, description: "No content." },
+    { code: 301, description: "Moved permanently." },
+    { code: 308, description: "Permanent redirect." },
     { code: 400, description: "Bad request." },
     { code: 401, description: "Unauthorized." },
     { code: 403, description: "Forbidden." },
