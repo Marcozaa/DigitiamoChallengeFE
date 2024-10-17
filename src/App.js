@@ -16,6 +16,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from "react-responsive-carousel";
 import { Dialog } from "primereact/dialog";
 import DialogInsertRequest from "./components/DialogInsertRequest";
+import SeeRequestsButton from "./components/SeeRequestsButton";
 function App() {
   const [data, setData] = React.useState(null);
   const [error, setError] = React.useState(null);
@@ -78,16 +79,6 @@ function App() {
     }
   };
 
-  function createRandomLink() {
-    let hostname = result.hostname;
-
-    for (let i = 0; i < 6; i++) {
-      hostname += Math.floor(Math.random() * 10);
-    }
-
-    return hostname;
-  }
-
   React.useEffect(() => {
     fetch("http://localhost:3001/api")
       .then((res) => {
@@ -148,7 +139,7 @@ function App() {
               />
             </Carousel>
           </div>
-          <ShareLink link={createRandomLink()} />
+          <ShareLink link={result.requestId} />
           <div className="slideUpComponent">
             <SwipeableBottomSheet overflowHeight={64}>
               <div style={{ height: "50vh" }}>
@@ -179,6 +170,7 @@ function App() {
           </div>
         </>
       )}
+      {!result && <SeeRequestsButton setResult={setResult} />}
     </div>
   );
 }
